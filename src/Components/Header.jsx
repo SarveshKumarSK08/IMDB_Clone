@@ -1,15 +1,19 @@
 import React from 'react'
-import './Header.css'
+// import './Header.css'
 import { NavLink } from "react-router-dom";
+import SearchBar from './SearchBar';
 
 const Header = () => {
   return (
-    <div className="header">
-        <div className="headerLeft">
-            <NavLink to='/'><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png" className='header__icon'/></NavLink>
-            <NavLink to='/movies/popular' style={{textDecoration: 'none'}}><span>Popular</span></NavLink>
-            <NavLink to='/movies/top_rated' style={{textDecoration: 'none'}}><span>Top Rated </span></NavLink>
-            <NavLink to='/movies/upcoming' style={{textDecoration: 'none'}}><span>Upcoming</span></NavLink>
+    <div className="header mx-9 my-0 items-center flex justify-between h-24">
+        <div className="headerLeft flex items-center">
+            <NavLink to='/'><img src="/logo2.png" className='header__icon cursor-pointer w-48 hover:scale'/></NavLink>
+            <NavLink to='/movies/popular' style={{textDecoration: 'none'}}><span className=" mx-28 my-0 text-2xl cursor-pointer text-white hover:text-red-600" >Popular</span></NavLink>
+            <NavLink to='/movies/top_rated'  className=" mx-28 text-2xl cursor-pointer text-white hover:text-red-600"style={{textDecoration: 'none'}}><span>Top Rated </span></NavLink>
+            <NavLink to='/movies/upcoming' className=" mx-28 text-2xl cursor-pointer text-white hover:text-red-600" style={{textDecoration: 'none'}}><span>Upcoming</span></NavLink>
+        <div className="">
+          <SearchBar/>
+        </div>
         </div>
     </div>
   )

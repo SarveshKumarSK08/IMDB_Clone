@@ -10,7 +10,7 @@ const Home = () => {
     const [popularMovies, setPopularMovies] = useState([])
 
     useEffect(() =>  {
-      fetch('https://api.themoviedb.org/3/movie/popular?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US')
+      fetch('https://api.themoviedb.org/3/movie/popular?api_key=2ced967a5c2aae7adc4ab8601a516368&language=en-US')
       .then(res => res.json())
       .then (data => setPopularMovies(data.results))
     
@@ -18,7 +18,7 @@ const Home = () => {
     
     return (
         <>
-        <div className='poster'>
+        <div className='poster z-0'>
             <Carousel
             showThumbs = {false}
             autoPlay = {true}
@@ -30,8 +30,8 @@ const Home = () => {
 
             {
                 popularMovies.map(movie => (
-                    <NavLink style={{textDecoration: 'none', color:'white'}} to={`/movie/${movie.id}`}>
-                    <div className="posterImage ">
+                    <NavLink style={{textDecoration: 'none', color:'white'}} to={`/movie/${movie.id}`} key={movie.id}>
+                    <div className="posterImage" >
                         <img src={`https://image.tmdb.org/t/p/original${movie && movie.backdrop_path}`}  />
                     </div>
                     <div className="posterImage__overlay">
